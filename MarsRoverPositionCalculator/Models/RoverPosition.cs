@@ -24,7 +24,7 @@ namespace MarsRoverPositionCalculator.Models
 			if (!int.TryParse(paramsAsString[1], out var y)) throw new ArgumentException($"Invalid position: {format}");
 			if (string.IsNullOrEmpty(paramsAsString[2])) throw new ArgumentException($"Invalid position: {format}");
 
-			var heading = paramsAsString[2].FromShortCode();
+			var heading = paramsAsString[2].CardinalCompassPointFromShortCode();
 
 			var roverPositon = new RoverPosition(x, y, heading);
 

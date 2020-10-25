@@ -12,7 +12,7 @@ namespace MarsRoverPositionCalculator.Models
 
 	public static class CardinalCompassPointExtensions
 	{
-		public static CardinalCompassPoint FromShortCode(this string shortCode)
+		public static CardinalCompassPoint CardinalCompassPointFromShortCode(this string shortCode)
 		{
 			return shortCode.ToUpper() switch
 			{
