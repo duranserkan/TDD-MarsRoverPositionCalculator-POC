@@ -18,10 +18,10 @@ A squad of robotic rovers will explore a rectangular plateau on Mars.
         2. Control signal R is send for 90 degrees rover spin to right without moving from its current spot
         3. Control signal M is send for move rover forward one grid point, and maintain the same heading
    3. Lower-left coordinates are assumed to be 0 0
-   4. The first line of input is the upper-right coordinates of the plateau
+   4. The first line of movement calculator input is the upper-right coordinates of the plateau in format of "{x} {y}"
    5. The rest of the input is information pertaining to the rovers that have been deployed. Each rover has two lines of input.
-        1. The first line gives the rover's position
-        2. The second line is a series of instructions telling the rover how to explore the plateau
+        1. The first line gives the rover's position in position format
+        2. The second line is a series of instructions telling the rover how to explore the plateau in format of "{C1}{C2}{C3}""
    6. Each rover will be finished sequentially, which means that the second rover won't start to move until the first one has finished moving.
    7. The output for each rover should be its final co-ordinates and heading.
    
