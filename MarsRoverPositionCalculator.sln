@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarsRoverPositionCalculator", "MarsRoverPositionCalculator\MarsRoverPositionCalculator.csproj", "{8DE015EE-A1CE-46F6-9B09-518DD6C63EA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRoverPositionCalculator.Test", "MarsRoverPositionCalculator.Test\MarsRoverPositionCalculator.Test.csproj", "{ACBD7519-3A8E-41CC-BD9A-074291C29DF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DE015EE-A1CE-46F6-9B09-518DD6C63EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE015EE-A1CE-46F6-9B09-518DD6C63EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE015EE-A1CE-46F6-9B09-518DD6C63EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE015EE-A1CE-46F6-9B09-518DD6C63EA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACBD7519-3A8E-41CC-BD9A-074291C29DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACBD7519-3A8E-41CC-BD9A-074291C29DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACBD7519-3A8E-41CC-BD9A-074291C29DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACBD7519-3A8E-41CC-BD9A-074291C29DF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3996D971-E40A-46F5-BB70-7D7F8D955AE1}
+	EndGlobalSection
+EndGlobal
