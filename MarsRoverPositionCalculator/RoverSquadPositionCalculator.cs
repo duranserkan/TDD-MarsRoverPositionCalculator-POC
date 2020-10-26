@@ -6,7 +6,7 @@ namespace MarsRoverPositionCalculator
 {
 	public class RoverSquadPositionCalculator
 	{
-		public string CalulateLastPositions(string inputAsString)
+		public string CalculateLastPositions(string inputAsString)
 		{
 			var input = RoverMovementCalculatorInput.CreateFromInputFormat(inputAsString);
 			var output = input.RoverPositionAndControlSignals

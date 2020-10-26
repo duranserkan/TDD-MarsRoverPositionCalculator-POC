@@ -12,7 +12,7 @@ namespace MarsRoverPositionCalculator.Test.UnitTests
 			string expectedOutput)
 		{
 			var calculator = new RoverSquadPositionCalculator();
-			var actualOutput = calculator.CalulateLastPositions(input);
+			var actualOutput = calculator.CalculateLastPositions(input);
 			actualOutput.ShouldBe(expectedOutput);
 		}
 
