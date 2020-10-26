@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MarsRoverPositionCalculator.Models
 {
@@ -29,6 +30,49 @@ namespace MarsRoverPositionCalculator.Models
 			var roverPositon = new RoverPosition(x, y, heading);
 
 			return roverPositon;
+		}
+
+		public RoverPosition CalculateNewPosition(RoverControlSignal controlSignal)
+		{
+			return controlSignal switch
+			{
+				RoverControlSignal.Left => Heading switch
+				{
+					CardinalCompassPoint.North => new RoverPosition(X, Y, CardinalCompassPoint.West),
+					CardinalCompassPoint.East => new RoverPosition(X, Y, CardinalCompassPoint.North),
+					CardinalCompassPoint.South => new RoverPosition(X, Y, CardinalCompassPoint.East),
+					CardinalCompassPoint.West => new RoverPosition(X, Y, CardinalCompassPoint.South),
+					_ => throw new ArgumentOutOfRangeException()
+				},
+				RoverControlSignal.Right => Heading switch
+				{
+					CardinalCompassPoint.North => new RoverPosition(X, Y, CardinalCompassPoint.East),
+					CardinalCompassPoint.East => new RoverPosition(X, Y, CardinalCompassPoint.South),
+					CardinalCompassPoint.South => new RoverPosition(X, Y, CardinalCompassPoint.West),
+					CardinalCompassPoint.West => new RoverPosition(X, Y, CardinalCompassPoint.North),
+					_ => throw new ArgumentOutOfRangeException()
+				},
+				RoverControlSignal.Move => Heading switch
+				{
+					CardinalCompassPoint.North => new RoverPosition(X, Y + 1, Heading),
+					CardinalCompassPoint.East => new RoverPosition(X + 1, Y, Heading),
+					CardinalCompassPoint.South => new RoverPosition(X, Y - 1, Heading),
+					CardinalCompassPoint.West => new RoverPosition(X - 1, Y, Heading),
+					_ => throw new ArgumentOutOfRangeException()
+				},
+				_ => throw new ArgumentOutOfRangeException(nameof(controlSignal), controlSignal, null)
+			};
+		}
+
+		public RoverPosition CalculateLastPosition(IReadOnlyList<RoverControlSignal> controlSignals)
+		{
+			var lastPosition = this;
+			foreach (var roverControlSignal in controlSignals)
+			{
+				lastPosition = lastPosition.CalculateNewPosition(roverControlSignal);
+			}
+
+			return lastPosition;
 		}
 	}
 }

@@ -39,7 +39,8 @@ namespace MarsRoverPositionCalculator.Test.UnitTests
 			var inputFormat =
 @"5 5
 1 2 N
-LML";
+LML
+";
 			var upRightCoordinateOfPlateau = new Position(5, 5);
 			var firstRoverPositon = new RoverPosition(1, 2, CardinalCompassPoint.North);
 			var firstRoverControlSignals = new[]
