@@ -7,8 +7,8 @@ namespace MarsRoverPositionCalculator.Test.UnitTests
 	public class RoverSquadPositionCalculatorTests
 	{
 		[Theory]
-		[MemberData(nameof(GetRoverMovementCalculatorInput))]
-		public void RoverMovementCalculatorInput_Should_Be_Created_From_Input_Format(string input,
+		[MemberData(nameof(GetRoverSquadPositionCalculatorInput))]
+		public void RoverSquadPositionCalculatorOutput_Should_Be_calculated_From_Input(string input,
 			string expectedOutput)
 		{
 			var calculator = new RoverSquadPositionCalculator();
@@ -16,7 +16,7 @@ namespace MarsRoverPositionCalculator.Test.UnitTests
 			actualOutput.ShouldBe(expectedOutput);
 		}
 
-		public static IEnumerable<object[]> GetRoverMovementCalculatorInput()
+		public static IEnumerable<object[]> GetRoverSquadPositionCalculatorInput()
 		{
 			var input =
 				@"5 5
