@@ -1,21 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MarsRoverPositionCalculator.Models
 {
 	public class RoverMovementCalculatorInput
 	{
+		public RoverMovementCalculatorInput(Position upRightCoordinateOfPlateau,
+			IReadOnlyList<RoverPositionAndControlSignals> roverPositionAndControlSignals)
+		{
+			UpRightCoordinateOfPlateau = upRightCoordinateOfPlateau;
+			RoverPositionAndControlSignals = roverPositionAndControlSignals;
+		}
+
+		public Position UpRightCoordinateOfPlateau { get; }
+		public IReadOnlyList<RoverPositionAndControlSignals> RoverPositionAndControlSignals { get; }
+
 		public static RoverMovementCalculatorInput CreateFromInputFormat(string inputFormat)
 		{
 			var inputLines = inputFormat
-				.Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-				.Select(i=>i.Trim()).ToArray();
+				.Split(new[] {Environment.NewLine}, StringSplitOptions.None)
+				.Select(i => i.Trim()).ToArray();
 			var upRightCoordinateOfPlateau = Position.CreateFromPositionFormat(inputLines[0]);
 
 			var inputLinesWithRoverNumber = inputLines.Skip(1)
-				.Select((l, i) => new { Line = l, RoverNumber = (int)Math.Floor((double)i / 2) })
+				.Select((l, i) => new {Line = l, RoverNumber = (int) Math.Floor((double) i / 2)})
 				.ToArray();
 			var positions = inputLinesWithRoverNumber.Where((l, i) => i % 2 == 0).ToArray();
 			var controlCommands = inputLinesWithRoverNumber.Where((l, i) => i % 2 == 1).ToArray();
@@ -35,20 +44,12 @@ namespace MarsRoverPositionCalculator.Models
 
 			return new RoverMovementCalculatorInput(upRightCoordinateOfPlateau, roverPositionAndControlSignals);
 		}
-
-		public RoverMovementCalculatorInput(Position upRightCoordinateOfPlateau, IReadOnlyList<RoverPositionAndControlSignals> roverPositionAndControlSignals)
-		{
-			UpRightCoordinateOfPlateau = upRightCoordinateOfPlateau;
-			RoverPositionAndControlSignals = roverPositionAndControlSignals;
-		}
-
-		public Position UpRightCoordinateOfPlateau { get; }
-		public IReadOnlyList<RoverPositionAndControlSignals> RoverPositionAndControlSignals { get; }
 	}
 
 	public class RoverPositionAndControlSignals
 	{
-		public RoverPositionAndControlSignals(RoverPosition roverPosition, IReadOnlyList<RoverControlSignal> roverControlSignals)
+		public RoverPositionAndControlSignals(RoverPosition roverPosition,
+			IReadOnlyList<RoverControlSignal> roverControlSignals)
 		{
 			RoverPosition = roverPosition;
 			RoverControlSignals = roverControlSignals;

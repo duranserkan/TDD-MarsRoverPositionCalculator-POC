@@ -1,15 +1,15 @@
-﻿using Shouldly;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Shouldly;
 using Xunit;
 
 namespace MarsRoverPositionCalculator.Test.UnitTests
 {
 	public class RoverSquadPositionCalculatorTests
 	{
-
 		[Theory]
 		[MemberData(nameof(GetRoverMovementCalculatorInput))]
-		public void RoverMovementCalculatorInput_Should_Be_Created_From_Input_Format(string input, string expectedOutput)
+		public void RoverMovementCalculatorInput_Should_Be_Created_From_Input_Format(string input,
+			string expectedOutput)
 		{
 			var calculator = new RoverSquadPositionCalculator();
 			var actualOutput = calculator.CalulateLastPositions(input);
@@ -25,7 +25,7 @@ LMLMLMLMM
 3 3 E
 MMRMMRMRRM
 ";
-			var output = 
+			var output =
 				@"1 3 N
 5 1 E";
 			yield return new object[]

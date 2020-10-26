@@ -68,9 +68,7 @@ namespace MarsRoverPositionCalculator.Models
 		{
 			var lastPosition = this;
 			foreach (var roverControlSignal in controlSignals)
-			{
 				lastPosition = lastPosition.CalculateNewPosition(roverControlSignal);
-			}
 
 			return lastPosition;
 		}

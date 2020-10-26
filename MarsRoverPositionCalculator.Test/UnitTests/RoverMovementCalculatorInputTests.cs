@@ -1,6 +1,6 @@
-﻿using MarsRoverPositionCalculator.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using MarsRoverPositionCalculator.Models;
 using Shouldly;
 using Xunit;
 
@@ -9,10 +9,12 @@ namespace MarsRoverPositionCalculator.Test.UnitTests
 	public class RoverMovementCalculatorInputTests
 	{
 		/// <summary>
-		///4. The first line of movement calculator input is the upper-right coordinates of the plateau in format of "{x} {y}"
-		///5. The rest of the input is information pertaining to the rovers that have been deployed.Each rover has two lines of input. 
-		///   1. The first line gives the rover's position in position format
-		///   2. The second line is a series of instructions telling the rover how to explore the plateau in format of "{C1}{C2}{C3}""
+		///     4. The first line of movement calculator input is the upper-right coordinates of the plateau in format of "{x} {y}"
+		///     5. The rest of the input is information pertaining to the rovers that have been deployed.Each rover has two lines
+		///     of input.
+		///     1. The first line gives the rover's position in position format
+		///     2. The second line is a series of instructions telling the rover how to explore the plateau in format of
+		///     "{C1}{C2}{C3}""
 		/// </summary>
 		[Theory]
 		[MemberData(nameof(GetRoverMovementCalculatorInput))]
@@ -25,7 +27,7 @@ namespace MarsRoverPositionCalculator.Test.UnitTests
 			var input = RoverMovementCalculatorInput.CreateFromInputFormat(inputFormat);
 			input.UpRightCoordinateOfPlateau.X.ShouldBe(upRightCoordinateOfPlateau.X);
 			input.UpRightCoordinateOfPlateau.Y.ShouldBe(upRightCoordinateOfPlateau.Y);
-			
+
 			var positionAndSignal = input.RoverPositionAndControlSignals.First();
 			positionAndSignal.RoverPosition.Heading.ShouldBe(firstRoverPosition.Heading);
 			positionAndSignal.RoverPosition.X.ShouldBe(firstRoverPosition.X);
@@ -37,7 +39,7 @@ namespace MarsRoverPositionCalculator.Test.UnitTests
 		public static IEnumerable<object[]> GetRoverMovementCalculatorInput()
 		{
 			var inputFormat =
-@"5 5
+				@"5 5
 1 2 N
 LML
 ";
