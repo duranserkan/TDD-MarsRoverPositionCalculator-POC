@@ -6,6 +6,7 @@ This repository contains requirements, codes and tests and for the Mars Rover Po
 * XUnit 2 as test framework
 * Nsubstitute as mocking library
 * Autofixture as data helper
+* Shouldly as assertion framework
 
 ## Requirements:
 A squad of robotic rovers will explore a rectangular plateau on Mars.
@@ -21,7 +22,7 @@ A squad of robotic rovers will explore a rectangular plateau on Mars.
    4. The first line of movement calculator input is the upper-right coordinates of the plateau in format of "{x} {y}"
    5. The rest of the input is information pertaining to the rovers that have been deployed. Each rover has two lines of input.
         1. The first line gives the rover's position in position format
-        2. The second line is a series of instructions telling the rover how to explore the plateau in format of "{C1}{C2}{C3}""
+        2. The second line is a series of instructions telling the rover how to explore the plateau in format of "{C1}/n{C2}{C3}""
    6. Each rover will be finished sequentially, which means that the second rover won't start to move until the first one has finished moving.
    7. The output for each rover should be its final co-ordinates and heading in position format.
    
